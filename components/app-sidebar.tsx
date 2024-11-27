@@ -14,25 +14,25 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarMenuItem>
             <Link href="/" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
-              <Home size={24} className="mr-2" />
+              <Home size={20} className="mr-2" />
               Home
             </Link>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <Link href="/portfolio" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
-              <Folder size={24} className="mr-2" />
+              <Folder size={20} className="mr-2" />
               Portfolio
             </Link>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <Link href="/about" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
-              <User size={24} className="mr-2" />
+              <User size={20} className="mr-2" />
               About
             </Link>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <Link href="/contact" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
-              <Mail size={24} className="mr-2" />
+              <Mail size={20} className="mr-2" />
               Contact
             </Link>
           </SidebarMenuItem>

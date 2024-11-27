@@ -33,9 +33,9 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: #f8f9fa; /* Light background */
-    --sidebar-foreground: #343a40; /* Dark text */
-    --sidebar-hover: #e9ecef; /* Hover effect */
+    --sidebar-background: #f8f9fa; 
+    --sidebar-foreground: #343a40; 
+    --sidebar-hover: #e9ecef; 
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
@@ -78,10 +78,10 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   ul, ol {
-    @apply list-none; /* 기본 마커 제거 */
+    @apply list-none;
   }
   li::marker {
-    content: none; /* 추가적인 마커 제거 */
+    content: none;
   }
   * {
     @apply border-border;
