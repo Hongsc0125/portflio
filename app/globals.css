@@ -89,4 +89,25 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .p-6{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1200px){
+    .p-6{
+      width: 100%;
+    }
+  }
+  @font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+  }
 }

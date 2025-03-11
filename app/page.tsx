@@ -10,11 +10,14 @@ export default function Home() {
       {/* Hero Section */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold">Welcome to My Portfolio</h1>
-          <p className="text-gray-500 mt-2">
-            A glimpse into my work, skills, and accomplishments.
+          <p className="text-black-500 mt-2 font-d2coding">
+            N 년차 개발자
           </p>
-          <Button className="mt-4">Explore My Work</Button>
+          <p className="text-5xl font-paperlogy">홍  성  철</p>
+          <p className="text-gray-500 mt-2 font-d2coding">
+            Backend developer, 
+          </p>
+          {/* <Button className="mt-4">Explore My Work</Button> */}
         </div>
         <Image
           src="/me.jpg"
