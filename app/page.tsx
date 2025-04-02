@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { getExperienceText, calculateYearsOfExperience } from "@/lib/utils";
+import { calculateYearsOfExperience } from "@/lib/utils";
 import { useState } from "react";
 
 export default function Home() {
@@ -64,18 +64,57 @@ export default function Home() {
           <div className="flex-1 flex justify-center">
             <Image
               src="/me.jpg"
-              alt="Hero Image"
+              alt="sungchul hong"
               width={300}
               height={300}
               className="rounded-full shadow-lg hover:shadow-xl transition-shadow"
             />
           </div>
         </div>
-
+        <Separator />
+        {/* career Section */}
+        <div>
+          <h2 className="text-2xl font-bold">{isKorean ? "커리어" : "Career"}</h2>
+          <div className="space-y-10 mt-6">
+            {/* 메타빌드 */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-500">
+                    {/* 로고  */}
+                    <Image src="/images/logos/metabuild.png" alt="meta" width={30} height={30} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">{isKorean ? "(주) 메타빌드" : "Metabuild"}</h3>
+                    <p className="text-sm text-gray-500">{isKorean ? "2024.01 - (재직 중)" : "Nov 2024 - Present"}</p>
+                  </div>
+                </div>
+                <a href="#" className="text-gray-400 hover:text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+              <div className="space-y-4">
+                <p className="text-gray-600 italic">"{isKorean ? "연계/미들웨어 솔루션 기업" : "Creating a warm neighborhood where neighbors become closer"}"</p>
+                <div>
+                  <h4 className="font-semibold">{isKorean ? "Backend 개발" : "Backend Development"}</h4>
+                  <div className="ml-4 mt-2 space-y-4">
+                    <div>
+                      <p className="font-medium">{isKorean ? "지역 동네 업체 정보(비즈프로필) 관련 개발" : "Local Business Profile Development"}</p>
+                      <p className="text-sm text-gray-500">{isKorean ? "2024년 하반기 - (진행 중)" : "Late 2024 - Present"}</p>
+                      <p className="mt-1 text-gray-600">{isKorean ? "이웃의 사장님들과 고객님들을 효과적으로 연결하기 위한 비즈프로필 관련 기능 개발" : "Developing business profile features to effectively connect local business owners with customers"}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <Separator />
         {/* Projects Section */}
         <div>
-          <h2 className="text-2xl font-bold">Featured Projects</h2>
+          <h2 className="text-2xl font-bold"> Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             <Card>
               <CardHeader>

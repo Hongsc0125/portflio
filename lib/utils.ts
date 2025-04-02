@@ -11,8 +11,3 @@ export function calculateYearsOfExperience(startYear: number): number {
   
   return years;
 }
-
-export function getExperienceText(startYear: number): string {
-  const years = calculateYearsOfExperience(startYear);
-  return `${years} years of experience`;
-}
