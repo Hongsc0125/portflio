@@ -33,20 +33,22 @@ export default function Home() {
         {/* Hero Section */}
         <div className="flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1 space-y-8">
-            <div className="flex items-center gap-3">
+            <div className="space-y-2">
+              <div className="flex justify-first">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={toggleLanguage} 
+                  className="text-gray-400 hover:text-gray-600 transition-colors px-2 py-1 h-auto"
+                >
+                  {isKorean ? "KR" : "EN"}
+                </Button>
+              </div>
               <p className="text-gray-600 font-d2coding whitespace-nowrap">
                 {isKorean 
-                  ? `Backend Developer | ${calculateYearsOfExperience(2024)}년차` 
+                  ? `Backend Developer | ${calculateYearsOfExperience(2024)} 년차` 
                   : `Backend Developer | ${calculateYearsOfExperience(2024)} Years Experience`}
               </p>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={toggleLanguage} 
-                className="text-gray-400 hover:text-gray-600 transition-colors px-2 py-1 h-auto"
-              >
-                {isKorean ? "EN" : "KR"}
-              </Button>
             </div>
             <h1 className="text-5xl md:text-6xl font-paperlogy tracking-tight whitespace-nowrap">
               {isKorean ? "홍 성 철" : "Sung Chul Hong"}
