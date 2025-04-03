@@ -36,12 +36,6 @@ export function AppSidebar() {
               Contact me
             </Link>
           </SidebarMenuItem>
-          <SidebarMenuItem>
-            <Link href="/contact" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
-              <Info size={20} className="mr-2" />
-              Archiving
-            </Link>
-          </SidebarMenuItem>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
