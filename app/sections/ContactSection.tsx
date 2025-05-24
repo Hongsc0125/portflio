@@ -1,9 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 
 const ContactSection: React.FC = () => {
-  const email = "your.email@example.com"; 
-  const githubUser = "yourusername";
-
   return (
   <div>
     <h2 className="text-2xl font-bold">연락처</h2>

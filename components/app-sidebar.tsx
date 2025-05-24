@@ -4,7 +4,7 @@ import {
   SidebarGroup,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Home, Folder, User, Phone, Info, Building } from "lucide-react";
+import { Folder, User, Phone, Building } from "lucide-react";
 import Link from "next/link";
 
 export function AppSidebar() {

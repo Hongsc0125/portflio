@@ -23,7 +23,7 @@ const CareerSection: React.FC = () => {
               </div>
             </div>
             <div className="space-y-4">
-              <p className="text-gray-600 italic">"연계/미들웨어 솔루션 기업"</p>
+              <p className="text-gray-600 italic">&quot;연계/미들웨어 솔루션 기업&quot;</p>
               <div className="mt-4">
                 {/* 한국청소년 상담복지개발원 */}
                 <div className="grid grid-cols-1 gap-4">

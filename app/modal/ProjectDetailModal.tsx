@@ -2,15 +2,13 @@ import React, { Suspense, lazy, useMemo } from 'react';
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 interface ProjectDetailModalProps {
   isOpen: boolean;
@@ -19,10 +17,7 @@ interface ProjectDetailModalProps {
 }
 
 const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ isOpen, onClose, projectId }) => {
-  if (!projectId) return null;
-
   const ProjectSpecificContent = useMemo(() => {
-    if (!projectId) return null;
     return lazy(() =>
       import(`./project-details/Content_${projectId}`)
         .catch(() => {
@@ -31,6 +26,8 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ isOpen, onClose
         })
     );
   }, [projectId]);
+
+  if (!projectId) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

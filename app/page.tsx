@@ -1,12 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
 import { calculateYearsOfExperience } from "@/lib/utils";
-import { useState } from "react";
 import CareerSection from '@/app/sections/CareerSection';
 import ProjectsSection from '@/app/sections/ProjectsSection';
 import SkillsSection from '@/app/sections/SkillsSection';
