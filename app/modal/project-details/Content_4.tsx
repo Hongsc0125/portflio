@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Image from 'next/image';
 
 const techStacks = [
   { type: 'Frontend', stack: ['React', 'TypeScript', 'Tailwind CSS'], desc: 'SPA, 컴포넌트 기반 UI, 반응형' },
@@ -29,7 +29,6 @@ const Project4Content: React.FC = () => {
     setSelectedImage(src);
   };
 
-  // 이미지 오버레이 상태 변경시 전역 플래그 설정 & ESC 키 닫기 기능 추가
   React.useEffect(() => {
     // 이미지 오버레이 열렸을 때 전역 플래그 설정
     if (typeof window !== 'undefined') {
@@ -76,7 +75,7 @@ const Project4Content: React.FC = () => {
           <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
             <h2 className="text-xl font-bold flex items-center gap-2 mb-2"><span className="text-blue-500">🌐</span> 프로젝트 개요</h2>
             <p className="text-gray-700 dark:text-gray-200">
-              <b>할머리?</b>는 "당신이 할 머리?"라는 의미의 팀 프로젝트로, <b>블레이버스 2025 MVP 해커톤</b>에서 3위를 수상한 작품입니다.<br/>
+              <b>할머리?</b>는 &quot;당신이 할 머리?&quot;라는 의미의 팀 프로젝트로, <b>블레이버스 2025 MVP 해커톤</b>에서 3위를 수상한 작품입니다.<br/>
               실제 예비창업자의 아이디어를 바탕으로, 클라이언트와 직접 소통하며 2주간 MVP를 개발했습니다.<br/>
               <b>로그인 → 헤어디자이너 리스트 → 예약 → 구글미트 이벤트 생성 → 결제</b>까지의 실 서비스 로직을 구현하였고, <b>유저 패턴 데이터 수집 및 대시보드</b>도 제공하는 등 실제 창업 환경에 가까운 경험을 했습니다.
             </p>
@@ -166,11 +165,13 @@ const Project4Content: React.FC = () => {
           <h3 className="text-lg font-semibold flex items-center gap-2 mb-4"><span className="text-pink-500">🖼️</span> 참여 사진/갤러리</h3>
           <div className="flex flex-wrap gap-4 justify-center">
             {galleryImages.map((src, idx) => (
-              <img
+              <Image // img 태그를 Image 컴포넌트로 변경
                 key={src}
                 src={src}
                 alt={`gallery-${idx}`}
-                className="w-72 h-48 object-cover rounded-lg shadow border cursor-pointer"
+                width={288} // w-72 -> 288px
+                height={192} // h-48 -> 192px
+                className="object-cover rounded-lg shadow border cursor-pointer"
                 loading="lazy"
                 onClick={() => handleImageClick(src)}
               />
@@ -183,14 +184,14 @@ const Project4Content: React.FC = () => {
       {selectedImage && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm"
-          onClick={(e) => e.stopPropagation()}
+          onClick={() => setSelectedImage(null)} // 변경: 배경 클릭 시 닫기
         >
           <div
-            className="relative max-w-3xl w-full flex flex-col items-center"
-            onClick={e => e.stopPropagation()}
+            className="relative max-w-3xl w-full aspect-video max-h-[80vh] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden"
+            onClick={e => e.stopPropagation()} // 유지: 이미지 컨테이너 클릭은 전파 방지
           >
             <button
-              className="absolute top-2 right-2 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition-colors"
+              className="absolute top-3 right-3 z-10 text-gray-700 dark:text-gray-300 bg-white bg-opacity-70 dark:bg-gray-700 dark:bg-opacity-70 rounded-full p-1.5 hover:bg-opacity-100 dark:hover:bg-opacity-100 transition-colors"
               onClick={() => setSelectedImage(null)}
               aria-label="닫기"
               type="button"
@@ -199,10 +200,12 @@ const Project4Content: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <img
-              src={selectedImage ?? ''}
-              alt="gallery-large"
-              className="rounded-lg shadow-lg max-h-[80vh] object-contain border bg-white"
+            <Image
+              src={selectedImage}
+              alt="확대된 이미지"
+              layout="fill"
+              objectFit="contain"
+              loading="lazy"
             />
           </div>
         </div>

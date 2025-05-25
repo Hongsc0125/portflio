@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useMemo, useState, useEffect, useRef } from 'react';
+import React, { Suspense, lazy, useMemo, useState, useEffect } from 'react';
 import {
   Dialog,
   DialogContent,
