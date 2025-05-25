@@ -4,10 +4,10 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const techStacks = [
   { type: 'Frontend', stack: ['React', 'TypeScript', 'Tailwind CSS'], desc: '반응형 웹, 모바일 퍼스트 디자인' },
-  { type: 'Backend', stack: ['Node.js', 'Express'], desc: 'REST API, AI 모델 연동' },
+  { type: 'Backend', stack: ['Python', 'FastAPI'], desc: 'REST API, AI 모델 연동' },
   { type: 'AI', stack: ['OpenAI API', 'Fine-tuning'], desc: '대화 시뮬레이션, 평가 시스템' },
-  { type: 'Database', stack: ['MongoDB'], desc: '사용자 데이터, 대화 이력 저장' },
-  { type: 'Deployment', stack: ['Vercel', 'AWS'], desc: '프론트엔드/백엔드 배포' },
+  { type: 'DB', stack: ['MongoDB'], desc: '사용자 데이터, 대화 이력 저장' },
+  { type: 'Infra', stack: ['Vercel', 'AWS EC2', 'GitHub Actions'], desc: '프론트/백엔드 배포, CI/CD' },
 ];
 
 const githubUrl = "https://github.com/AI-hellothon-2024/AI-hellothon-2024";
