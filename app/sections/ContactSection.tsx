@@ -5,8 +5,8 @@ const ContactSection: React.FC = () => {
   <div>
     <h2 className="text-2xl font-bold">연락처</h2>
     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Card className="bg-white">
-        <CardContent className="pt-6">
+      <Card className="bg-background text-foreground">
+        <CardContent className="pt-6 bg-background text-foreground">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -15,8 +15,8 @@ const ContactSection: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium text-gray-700">이메일</p>
-                <a href="mailto:your.email@example.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <p className="font-medium text-foreground">이메일</p>
+                <a href="mailto:your.email@example.com" className="text-muted-foreground hover:text-primary transition-colors">
                   your.email@example.com
                 </a>
               </div>
@@ -29,16 +29,16 @@ const ContactSection: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium text-gray-700">위치</p>
-                <p className="text-gray-600">서울특별시</p>
+                <p className="font-medium text-foreground">위치</p>
+                <p className="text-muted-foreground">서울특별시</p>
               </div>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      <Card className="bg-white">
-        <CardContent className="pt-6">
+      <Card className="bg-background text-foreground">
+        <CardContent className="pt-6 bg-background text-foreground">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
@@ -47,8 +47,8 @@ const ContactSection: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium text-gray-700">GitHub</p>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-purple-600 transition-colors">
+                <p className="font-medium text-foreground">GitHub</p>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   github.com/yourusername
                 </a>
               </div>
@@ -60,8 +60,8 @@ const ContactSection: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium text-gray-700">LinkedIn</p>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-600 transition-colors">
+                <p className="font-medium text-foreground">LinkedIn</p>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   linkedin.com/in/yourusername
                 </a>
               </div>

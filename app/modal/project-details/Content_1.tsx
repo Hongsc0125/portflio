@@ -16,14 +16,14 @@ const discordInviteUrl = "https://discord.com/invite/mabinogi01";
 const Project1Content: React.FC = () => {
   return (
     <Tabs defaultValue="intro" className="w-full">
-      <TabsList className="mb-4 flex gap-2 justify-center bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <TabsTrigger value="intro" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+      <TabsList className="mb-4 flex gap-2 justify-center bg-transparent border-none shadow-none">
+        <TabsTrigger value="intro" className="px-5 py-2 text-base font-semibold rounded-t-lg border-none bg-transparent text-foreground hover:bg-accent transition-colors data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
           <span className="mr-1">📋</span>소개
         </TabsTrigger>
-        <TabsTrigger value="stack" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+        <TabsTrigger value="stack" className="px-5 py-2 text-base font-semibold rounded-t-lg border-none bg-transparent text-foreground hover:bg-accent transition-colors data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
           <span className="mr-1">🏗️</span>기술스택
         </TabsTrigger>
-        <TabsTrigger value="links" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+        <TabsTrigger value="links" className="px-5 py-2 text-base font-semibold rounded-t-lg border-none bg-transparent text-foreground hover:bg-accent transition-colors data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
           <span className="mr-1">🔗</span>링크
         </TabsTrigger>
       </TabsList>

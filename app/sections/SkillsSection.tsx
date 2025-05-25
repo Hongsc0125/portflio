@@ -4,11 +4,11 @@ import { Badge } from "@/components/ui/badge";
 const SkillsSection = () => {
   return (
     <div>
-      <Card className="border shadow-lg">
-        <CardHeader>
+      <Card className="border shadow-lg bg-background text-foreground">
+        <CardHeader className="bg-background">
           <CardTitle className="text-2xl font-bold">기술 스택</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 bg-background text-foreground">
           <div>
             <h3 className="text-lg font-semibold mb-3 text-blue-600">Backend Development</h3>
             <div className="flex flex-wrap gap-2">

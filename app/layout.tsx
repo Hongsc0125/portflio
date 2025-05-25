@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex">
         <SidebarProvider>
           <AppSidebar />
+          <ThemeToggle />
           <main className="flex-1">
             <SidebarTrigger />
             {children}

@@ -33,6 +33,13 @@ const projectsData: Project[] = [
     title: "개인 포트폴리오 웹사이트",
     description: "Next.js, Tailwind CSS, shadcn/ui 기반의 반응형 포트폴리오 웹사이트\n깔끔한 UI/UX, 자동 배포, 컴포넌트 기반 구조 구현"
   },
+  {
+    id: 4,
+    isRunning: false,
+    projectType: '팀',
+    title: "할머리 프로젝트",
+    description: "블레이버스 2025 MVP 해커톤에서\n👑3위👑를 수상한 작품입니다.\n실제 예비창업자의 아이디어를 바탕으로, 클라이언트와 직접 소통하며 2주간 MVP를 개발했습니다.\n로그인 → 헤어디자이너 리스트 → 예약 → 구글미트 이벤트 생성 → 결제까지의 실 서비스 로직을 구현하였고, 유저 패턴 데이터 수집 및 대시보드도 제공하는 등 실제 창업 환경에 가까운 경험을 했습니다."
+  },
 ];
 
 const ProjectsSection: React.FC = () => {
@@ -60,26 +67,26 @@ const ProjectsSection: React.FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {projectsData.map((project) => (
-          <Card key={project.id} className="flex flex-col">
-            <CardHeader>
+          <Card key={project.id} className="flex flex-col bg-background text-foreground">
+            <CardHeader className="bg-background">
               <CardTitle>
-  {(project.isRunning) && (
-    <span className="inline-block w-3 h-3 rounded-full bg-green-500 mr-2 align-middle shadow animate-pulse" title="운영중" />
-  )}
-  {(project.isRunning === false) && (
-    <span className="inline-block w-3 h-3 rounded-full bg-red-500 mr-2 align-middle shadow animate-pulse" title="종료" />
-  )}
-  {project.title}
-  <span className={
-    project.projectType === '팀'
-      ? 'inline-block px-2 py-0.5 text-xs font-semibold rounded bg-blue-100 text-blue-700 ml-2 align-middle'
-      : 'inline-block px-2 py-0.5 text-xs font-semibold rounded bg-purple-100 text-purple-700 ml-2 align-middle'}>
-    {project.projectType}
-  </span>
-</CardTitle>
+                {(project.isRunning) && (
+                  <span className="inline-block w-3 h-3 rounded-full bg-green-500 mr-2 align-middle shadow animate-pulse" title="운영중" />
+                )}
+                {(project.isRunning === false) && (
+                  <span className="inline-block w-3 h-3 rounded-full bg-red-500 mr-2 align-middle shadow animate-pulse" title="종료" />
+                )}
+                {project.title}
+                <span className={
+                  project.projectType === '팀'
+                    ? 'inline-block px-2 py-0.5 text-xs font-semibold rounded bg-blue-100 text-blue-700 ml-2 align-middle'
+                    : 'inline-block px-2 py-0.5 text-xs font-semibold rounded bg-purple-100 text-purple-700 ml-2 align-middle'}>
+                  {project.projectType}
+                </span>
+              </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col justify-between flex-grow">
-              <p className="text-gray-600 mb-4 whitespace-pre-line">
+            <CardContent className="flex flex-col justify-between flex-grow bg-background text-foreground">
+              <p className="text-muted-foreground mb-4 whitespace-pre-line">
                 {project.description}
               </p>
               <Button onClick={() => openModal(project.id)} className="mt-auto">

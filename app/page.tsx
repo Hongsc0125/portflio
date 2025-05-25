@@ -19,7 +19,7 @@ export default function Home() {
   const yearsOfExperience = calculateYearsOfExperience(2024);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-10">
         {/* Hero Section */}
         <HeroSection
