@@ -49,7 +49,7 @@ const Project3Content: React.FC = () => {
               <li>- <b>Next.js App Router</b> 기반의 최신 구조, 페이지/섹션 분리</li>
               <li>- <b>shadcn/ui</b> 활용한 일관된 UI/UX 및 커스텀 컴포넌트</li>
               <li>- <b>Tailwind CSS</b> 기반의 빠른 스타일링과 반응형 지원</li>
-              <li>- <b>Vercel + GitHub Actions</b>를 통한 자동 배포 및 CI/CD</li>
+              <li>- <b>Vercel</b>를 통한 자동 배포 및 CI/CD</li>
               <li>- <b>TypeScript</b>로 타입 안정성 및 코드 품질 확보</li>
               <li>- <b>모바일/PC 모두 최적화</b>된 레이아웃</li>
               <li>- <b>실제 프로젝트/경력/스킬/연락처</b> 등 다양한 섹션별 컴포넌트화</li>

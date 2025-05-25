@@ -139,7 +139,7 @@ const CareerSection: React.FC = () => {
                       </p>
                       <p className="text-sm text-gray-600 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
-                        DB ↔ DB, SAP → DB, SOAP → DB 등 다양한 연계 방식에 대응 가능한 범용 처리 로직과 예외 처리 체계를 구축함.
+                        DB ↔ DB, SAP ↔ DB, SOAP ↔ DB 등 다양한 연계 방식에 대응 가능한 범용 처리 로직과 예외 처리 체계를 구축함.
                       </p>
                       <p className="text-sm text-gray-600 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
