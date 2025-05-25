@@ -14,6 +14,7 @@ const techStacks = [
 const githubUrl = "https://github.com/Harmari/BE";
 const deployUrl = "https://harmari-fe.vercel.app";
 const blaybusUrl = "https://www.blaybus.com/activities/420/landing";
+const dashboardUrl = "https://harmari.duckdns.org/bi/dashboard";
 const galleryImages = [
   "/images/content_4/1.png",
   "/images/content_4/2.png",
@@ -86,9 +87,20 @@ const Project4Content: React.FC = () => {
             <ul className="list-disc ml-5 space-y-2 text-gray-700 dark:text-gray-200">
               <li>- <b>실제 클라이언트(예비창업자)</b>와 협업, 요구사항 분석 및 MVP 설계</li>
               <li>- <b>전 과정 실서비스 플로우</b>: 회원가입/로그인, 디자이너 리스트, 예약, 구글미트 자동 생성, 결제, 예약내역/통계 대시보드</li>
-              <li>- <b>담당 기능</b>: <span className="text-blue-500">구글미트 자동 생성</span>, <span className="text-blue-500">예약 로직 및 예외처리</span> (중복/동시성),  
-                <br/> <span className="text-blue-500">유저 패턴 데이터 수집</span> 및 자체 통계 대시보드 구현</li>
-              <li>- <b>실제 배포/운영 환경</b>에서 테스트 및 피드백 반복</li>
+              <li>
+                <div className="flex">
+                  <span className="flex-shrink-0 whitespace-nowrap">- <b>담당 기능</b>:&nbsp;</span>
+                  <div className="flex flex-col"> 
+                    <div>
+                      <span className="text-blue-500">구글미트 자동 생성</span>, <span className="text-blue-500">예약 로직 및 예외처리</span> (중복/동시성),
+                    </div>
+                    <div>
+                      <span className="text-blue-500">유저 패턴 데이터 수집</span> 및 <span className="text-blue-500">자체 통계 대시보드 구현</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+                <li>- <b>실제 배포/운영 환경</b>에서 테스트 및 피드백 반복</li>
               <li>- <b>2주 개발</b>, 팀원 4명</li>
             </ul>
           </section>
@@ -155,6 +167,12 @@ const Project4Content: React.FC = () => {
                 해커톤 행사 안내 페이지
               </a>
             </Button>
+            <Button asChild variant="default" className="flex-1 flex items-center justify-center gap-2 max-w-xs">
+              <a href={dashboardUrl} target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-1"><path d="M12.293 2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1-1.414 1.414L16 7.414V15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7.414l-.293.293A1 1 0 0 1 2.293 6.293l4-4a1 1 0 0 1 1.414 0zM6 7v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7H6z" /></svg>
+                통계 대시보드
+              </a>
+            </Button>
           </div>
         </section>
       </TabsContent>
@@ -165,12 +183,12 @@ const Project4Content: React.FC = () => {
           <h3 className="text-lg font-semibold flex items-center gap-2 mb-4"><span className="text-pink-500">🖼️</span> 참여 사진/갤러리</h3>
           <div className="flex flex-wrap gap-4 justify-center">
             {galleryImages.map((src, idx) => (
-              <Image // img 태그를 Image 컴포넌트로 변경
+              <Image
                 key={src}
                 src={src}
                 alt={`gallery-${idx}`}
-                width={288} // w-72 -> 288px
-                height={192} // h-48 -> 192px
+                width={288}
+                height={192}
                 className="object-cover rounded-lg shadow border cursor-pointer"
                 loading="lazy"
                 onClick={() => handleImageClick(src)}
@@ -180,15 +198,14 @@ const Project4Content: React.FC = () => {
         </section>
       </TabsContent>
 
-      {/* 이미지 확대 오버레이 - 완전히 독립적으로 작동하도록 변경 */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm"
-          onClick={() => setSelectedImage(null)} // 변경: 배경 클릭 시 닫기
+          onClick={() => setSelectedImage(null)}
         >
           <div
             className="relative max-w-3xl w-full aspect-video max-h-[80vh] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden"
-            onClick={e => e.stopPropagation()} // 유지: 이미지 컨테이너 클릭은 전파 방지
+            onClick={e => e.stopPropagation()}
           >
             <button
               className="absolute top-3 right-3 z-10 text-gray-700 dark:text-gray-300 bg-white bg-opacity-70 dark:bg-gray-700 dark:bg-opacity-70 rounded-full p-1.5 hover:bg-opacity-100 dark:hover:bg-opacity-100 transition-colors"
