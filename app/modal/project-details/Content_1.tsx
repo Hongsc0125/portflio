@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import Image from 'next/image';
 
 const techStacks = [
   { type: 'Frontend', stack: ['React', 'TypeScript', 'Tailwind CSS'], desc: '반응형 웹, 모바일 퍼스트 디자인' },

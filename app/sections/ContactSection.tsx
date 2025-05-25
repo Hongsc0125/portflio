@@ -1,6 +1,37 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "sonner";
 
 const ContactSection: React.FC = () => {
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const email = 'hsc890125@gmail.com';
+    
+    // 클라이언트 사이드에서만 실행되도록 확인
+    if (typeof window !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(email).then(() => {
+        toast.success('이메일이 복사되었습니다!');
+      }).catch(err => {
+        console.error('이메일 복사 실패:', err);
+        toast.error('이메일 복사에 실패했습니다.');
+      });
+    } else {
+      // 클립보드 API를 사용할 수 없는 경우 대체 방법
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        toast.success('이메일이 복사되었습니다!');
+      } catch (err) {
+        console.error('이메일 복사 실패:', err);
+        toast.error('이메일 복사에 실패했습니다.');
+      }
+      document.body.removeChild(textarea);
+    }
+  };
   return (
   <div>
     <h2 className="text-2xl font-bold">연락처</h2>
@@ -16,9 +47,12 @@ const ContactSection: React.FC = () => {
               </div>
               <div>
                 <p className="font-medium text-foreground">이메일</p>
-                <a href="mailto:hsc890125@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={handleEmailClick}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   hsc890125@gmail.com
-                </a>
+                </button>
               </div>
             </div>
             <div className="flex items-center gap-3">
