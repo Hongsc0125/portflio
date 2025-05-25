@@ -22,22 +22,32 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-10">
         {/* Hero Section */}
-        <HeroSection
-          introductions={introductions}
-          yearsOfExperience={yearsOfExperience}
-        />
+        <section id="hero">
+          <HeroSection
+            introductions={introductions}
+            yearsOfExperience={yearsOfExperience}
+          />
+        </section>
         <Separator />
         {/* career Section */}
-        <CareerSection />
+        <section id="career">
+          <CareerSection />
+        </section>
         <Separator />
         {/* Projects Section */}
-        <ProjectsSection />
+        <section id="projects">
+          <ProjectsSection />
+        </section>
         <Separator />
         {/* Skills Section */}
-        <SkillsSection />
+        <section id="skills">
+          <SkillsSection />
+        </section>
         <Separator />
         {/* Contact Section */}
-        <ContactSection />
+        <section id="contact">
+          <ContactSection />
+        </section>
       </div>
     </div>
   );

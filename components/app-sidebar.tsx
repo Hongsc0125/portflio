@@ -1,40 +1,74 @@
+"use client";
+
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Folder, User, Phone, Building } from "lucide-react";
-import Link from "next/link";
+import { Folder, User, Phone, Building, Code } from "lucide-react";
+import { useCallback } from "react";
 
 export function AppSidebar() {
+  // 스크롤 함수 정의
+  const scrollToSection = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // 부드러운 스크롤 적용
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }, []);
   return (
     <Sidebar className="bg-[var(--sidebar-background)] text-[var(--sidebar-foreground)]">
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenuItem>
-            <Link href="/" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
+            <div 
+              onClick={() => scrollToSection("hero")} 
+              className="flex items-center p-4 hover:bg-[var(--sidebar-hover)] cursor-pointer"
+            >
               <User size={20} className="mr-2" />
-              About me
-            </Link>
+              소개
+            </div>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <Link href="/portfolio" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
+            <div 
+              onClick={() => scrollToSection("career")} 
+              className="flex items-center p-4 hover:bg-[var(--sidebar-hover)] cursor-pointer"
+            >
               <Building size={20} className="mr-2" />
-              Career
-            </Link>
+              경력
+            </div>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <Link href="/about" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
+            <div 
+              onClick={() => scrollToSection("projects")} 
+              className="flex items-center p-4 hover:bg-[var(--sidebar-hover)] cursor-pointer"
+            >
               <Folder size={20} className="mr-2" />
-              Projects
-            </Link>
+              프로젝트
+            </div>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <Link href="/contact" className="flex items-center p-4 hover:bg-[var(--sidebar-hover)]">
+            <div 
+              onClick={() => scrollToSection("skills")} 
+              className="flex items-center p-4 hover:bg-[var(--sidebar-hover)] cursor-pointer"
+            >
+              <Code size={20} className="mr-2" />
+              기술 스택
+            </div>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <div 
+              onClick={() => scrollToSection("contact")} 
+              className="flex items-center p-4 hover:bg-[var(--sidebar-hover)] cursor-pointer"
+            >
               <Phone size={20} className="mr-2" />
-              Contact me
-            </Link>
+              연락처
+            </div>
           </SidebarMenuItem>
         </SidebarGroup>
       </SidebarContent>
