@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
       <div className="flex-1 flex justify-center">
         <Image
-          src="/me.jpg"
+          src="/images/me.png"
           alt="sungchul hong"
           width={250}
           height={250}
