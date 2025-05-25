@@ -76,7 +76,7 @@ const Project4Content: React.FC = () => {
           <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
             <h2 className="text-xl font-bold flex items-center gap-2 mb-2"><span className="text-blue-500">🌐</span> 프로젝트 개요</h2>
             <p className="text-gray-700 dark:text-gray-200">
-              <b>할머리?</b>는 &quot;당신이 할 머리?&quot;라는 의미의 팀 프로젝트로, <b>블레이버스 2025 MVP 해커톤</b>에서 3위를 수상한 작품입니다.<br/>
+              <b>할머리?</b>는 &quot;당신이 할 머리?&quot;라는 의미의 팀 프로젝트로, <b>블레이버스 2025 MVP 해커톤</b>에서 <b>3위</b>를 수상한 작품입니다.<br/>
               실제 예비창업자의 아이디어를 바탕으로, 클라이언트와 직접 소통하며 2주간 MVP를 개발했습니다.<br/>
               <b>로그인 → 헤어디자이너 리스트 → 예약 → 구글미트 이벤트 생성 → 결제</b>까지의 실 서비스 로직을 구현하였고, <b>유저 패턴 데이터 수집 및 대시보드</b>도 제공하는 등 실제 창업 환경에 가까운 경험을 했습니다.
             </p>
