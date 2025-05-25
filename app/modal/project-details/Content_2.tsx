@@ -1,33 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Image from 'next/image';
 
-const techStacks: string[] = [
-  "Python",
-  "Selenium",
-  "PostgreSQL",
-  "Thread",
-  "Queue",
-  "COPY (Postgres)",
-  "BeautifulSoup4",
+const techStacks = [
+  { type: 'Frontend', stack: ['React', 'TypeScript', 'Tailwind CSS'], desc: 'SPA, 컴포넌트 기반 UI, 반응형' },
+  { type: 'Backend', stack: ['FastAPI', 'Python'], desc: 'REST API, 예약/구글미트/통계 로직' },
+  { type: 'DB', stack: ['MongoDB'], desc: 'NoSQL, 유저/예약/패턴 데이터 저장' },
+  { type: 'Infra', stack: ['Vercel', 'AWS EC2', 'GitHub Actions'], desc: '프론트/백엔드 배포, CI/CD' },
+  { type: 'Etc', stack: ['Google Meet API', 'GitHub'], desc: '외부 API, 버전관리' },
 ];
 
-const githubUrl = "https://github.com/Hongsc0125/mabinogi-crawler";
+const githubUrl = "https://github.com/Harmari/BE";
+const deployUrl = "https://harmari-fe.vercel.app";
+const blaybusUrl = "https://www.blaybus.com/activities/420/landing";
+const dashboardUrl = "https://harmari.duckdns.org/bi/dashboard";
+const galleryImages = [
+  "/images/content_2/1.png",
+  "/images/content_2/2.png",
+  "/images/content_2/3.png"
+];
 
-const Project3Content: React.FC = () => {
+const Project4Content: React.FC = () => {
+  // 이미지 확대용 상태
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // 이미지 클릭 핸들러
+  const handleImageClick = (src: string) => {
+    setSelectedImage(src);
+  };
+
+  React.useEffect(() => {
+    // 이미지 오버레이 열렸을 때 전역 플래그 설정
+    if (typeof window !== 'undefined') {
+      window.__imageOverlayOpen = selectedImage !== null;
+    }
+
+    // ESC 키로 닫기 기능 추가
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedImage) {
+        setSelectedImage(null);
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      // 이미지 오버레이 닫힘 때 플래그 초기화
+      if (typeof window !== 'undefined') {
+        window.__imageOverlayOpen = false;
+      }
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedImage]);
   return (
     <Tabs defaultValue="intro" className="w-full">
-      <TabsList className="mb-4 flex gap-2 justify-center bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <TabsTrigger value="intro" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+      <TabsList className="mb-4 flex gap-2 justify-center bg-transparent border-b border-gray-200 dark:border-gray-800">
+        <TabsTrigger value="intro" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-transparent text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
           <span className="mr-1">📋</span>소개
         </TabsTrigger>
-        <TabsTrigger value="stack" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+        <TabsTrigger value="stack" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-transparent text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
           <span className="mr-1">🏗️</span>기술스택
         </TabsTrigger>
-        {/* <TabsTrigger value="links" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+        <TabsTrigger value="links" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-transparent text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
           <span className="mr-1">🔗</span>링크
-        </TabsTrigger> */}
+        </TabsTrigger>
+        <TabsTrigger value="gallery" className="px-5 py-2 text-base font-semibold rounded-t-lg border border-b-0 border-gray-200 dark:border-gray-700 bg-transparent text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors data-[state=active]:bg-primary data-[state=active]:text-white">
+          <span className="mr-1">🖼️</span>갤러리
+        </TabsTrigger>
       </TabsList>
 
       {/* 소개 */}
@@ -35,57 +74,44 @@ const Project3Content: React.FC = () => {
         <div className="space-y-6">
           {/* 프로젝트 개요 */}
           <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-            <h2 className="text-xl font-bold flex items-center gap-2 mb-2"><span className="text-blue-500">🕸️</span> 대용량 크롤링 서버 구축</h2>
-            <p className="space-y-2 text-gray-700 dark:text-gray-200">
-              마비노기 모바일의 공식 API 미지원 환경에서, <b>7개 서버 약 150만명</b> 유저의 랭킹 데이터를 <b>Python 기반 대용량 크롤링 서버</b>로 구축·운영한 실전 경험입니다.<br/>
-              단순 수집이 아니라, <b>웹페이지 구조 분석, 데이터 품질 관리, 장애 대응, 성능 최적화</b> 등 실제 서비스 수준의 고민과 개선을 반복하며 설계·구현·운영까지 직접 담당했습니다.
+            <h2 className="text-xl font-bold flex items-center gap-2 mb-2"><span className="text-blue-500">🌐</span> 프로젝트 개요</h2>
+            <p className="text-gray-700 dark:text-gray-200">
+              <b>할머리?</b>는 &quot;당신이 할 머리?&quot;라는 의미의 팀 프로젝트로,<br/> <b>블레이버스 2025 MVP 해커톤</b>에서 <b>👑3위👑</b>를 수상한 작품입니다.<br/>
+              실제 예비창업자의 아이디어를 바탕으로, 클라이언트와 직접 소통하며 2주간 MVP를 개발했습니다.<br/>
+              <b>로그인 → 헤어디자이너 리스트 → 예약 → 구글미트 이벤트 생성 → 결제</b>까지의 실 서비스 로직을 구현하였고, <b>유저 패턴 데이터 수집 및 대시보드</b>도 제공하는 등 실제 창업 환경에 가까운 경험을 했습니다.
             </p>
           </section>
-          {/* 크롤링 설계 및 데이터 수집 전략 */}
+          {/* 주요 특징 및 본인 역할 */}
           <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-green-500">🔎</span> 크롤링 설계 및 데이터 수집 전략</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-200">
-              <li><b>API 미제공</b> 환경에서 <b>웹페이지 HTML 구조를 직접 분석</b>하여 데이터 파싱 로직을 설계</li>
-              <li>1000등까지는 <b>페이지네이션 기반 크롤링</b>, 그 이하 유저는 <b>캐릭터명 기반 추적·검색</b> 로직으로 전체 유저 확보</li>
-              <li>각 서버별로 <b>유저 분포/랭킹 변화</b>를 분석해, <b>효율적인 크롤링 순서와 추적 대상 선정</b> 알고리즘 구현</li>
-              <li>크롤링 중 <b>중복 데이터, 누락, 일시적 차단</b> 등 예외 상황에 대비한 <b>재시도/백오프</b> 등 견고한 예외처리 적용</li>
+            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-green-500">✨</span> 주요 특징 및 담당 파트</h3>
+            <ul className="list-disc ml-5 space-y-2 text-gray-700 dark:text-gray-200">
+              <li>- <b>실제 클라이언트(예비창업자)</b>와 협업, 요구사항 분석 및 MVP 설계</li>
+              <li>- <b>전 과정 실서비스 플로우</b>: 회원가입/로그인, 디자이너 리스트, 예약, 구글미트 자동 생성, 결제, 예약내역/통계 대시보드</li>
+              <li>
+                <div className="flex">
+                  <span className="flex-shrink-0 whitespace-nowrap">- <b>담당 기능</b>:&nbsp;</span>
+                  <div className="flex flex-col"> 
+                    <div>
+                      <span className="text-blue-500">구글미트 자동 생성</span>, <span className="text-blue-500">예약 로직 및 예외처리</span> (중복/동시성),
+                    </div>
+                    <div>
+                      <span className="text-blue-500">유저 패턴 데이터 수집</span> 및 <span className="text-blue-500">자체 통계 대시보드 구현</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+                <li>- <b>실제 배포/운영 환경</b>에서 테스트 및 피드백 반복</li>
+              <li>- <b>2주 개발</b>, 팀원 4명</li>
             </ul>
           </section>
-          {/* 동시성/성능/안정성 고민 및 구조 */}
+          {/* 개발 이슈 및 경험 */}
           <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-cyan-500">🧩</span> 동시성 · 성능 · 안정성 구조</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-200">
-              <li><b>7개 서버</b>를 각 <b>Thread + ChromeDriver</b>로 병렬 처리, <b>Queue</b>로 작업 분산/순서 보장</li>
-              <li>크롤링 결과를 <b>메모리 큐</b>에 저장, <b>DB 작업(INSERT)</b>은 별도 스레드로 분리하여 I/O 병목 최소화</li>
-              <li>DB 저장 속도 병목 발견 시 <b>배치 insert, PostgreSQL COPY</b> 등 대용량 데이터 최적화 전략 적용</li>
-              <li>중복/경합 방지를 위해 <b>큐에 쌓을 때부터 중복 필터</b> 적용, 데드락/무한 대기 등 장애를 사전 차단</li>
-              <li>크롤링/DB/에러/성능 로그를 별도 관리해 <b>운영 중 장애 원인 추적 및 자동 알림</b> 구현</li>
-            </ul>
-          </section>
-          {/* 실시간 랭킹 조회와 고도화 */}
-          <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-pink-500">⚡</span> 실시간 랭킹 조회와 고도화</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-200">
-              <li>전투력/매력/생활력 3개 랭킹을 <b>각 Thread별 ChromeDriver 상시 대기</b>로 요청 즉시 크롤링, 10초 이내 응답</li>
-              <li>실제 유저 사용 패턴, 요청 빈도, 병목 구간을 분석해 <b>Thread/Driver 수 조정, 예비 Driver 핫스왑</b> 등 운영 중 고도화</li>
-            </ul>
-          </section>
-          {/* 트러블슈팅 및 기술적 의사결정 */}
-          <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-yellow-500">🛠️</span> 트러블슈팅 및 기술적 의사결정</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-200">
-              <li>크롤링/DB 작업 분리, <b>Queue & Thread</b> 구조로 장애시에도 데이터 유실/중복 최소화</li>
-              <li>DB 데드락(동일 데이터 중복 세션) 발생 → <b>큐 중복 필터, 트랜잭션 재설계</b>로 해결</li>
-              <li>크롤링 속도/품질/안정성 균형을 위해 <b>스케줄링, 백오프, 예외 재시도 정책</b> 직접 설계</li>
-              <li>운영 중 발생한 <b>IP 차단, 페이지 구조 변경, 네트워크 오류</b> 등 장애에 신속 대응</li>
-            </ul>
-          </section>
-          {/* 운영 및 유지보수 */}
-          <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-purple-500">🔄</span> 운영 & 유지보수</h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-200">
-              <li>매일 자동 크롤링/DB 갱신, 신규 유저/랭킹 실시간 반영</li>
-              <li>운영 중 <b>성능 개선, 장애 대응, 코드 리팩토링</b> 등 지속적 개선</li>
+            <h3 className="text-lg font-semibold flex items-center gap-2 mb-2"><span className="text-yellow-500">⚙️</span> 개발 이슈 및 경험</h3>
+            <ul className="list-disc ml-5 space-y-2 text-gray-700 dark:text-gray-200">
+              <li>- <b>Google Meet API</b> 권한 이슈로 여러 시행착오를 겪으며, 실제 서비스 연동 경험</li>
+              <li>- <b>예약 로직</b>에서 동시성/중복 방지 등 실무 수준의 예외처리 고민</li>
+              <li>- <b>프론트-백엔드 연동</b>과 실시간 피드백, 실제 유저 데이터 기반 통계 구현</li>
+              <li>- <b>팀 협업</b> 및 Git, GitHub 기반의 버전 관리/CI</li>
             </ul>
           </section>
         </div>
@@ -94,44 +120,24 @@ const Project3Content: React.FC = () => {
       {/* 기술스택 */}
       <TabsContent value="stack" className="min-h-[600px] max-h-[600px] overflow-y-auto" style={{ scrollbarGutter: 'stable' }}>
         <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800">
-          <h2 className="text-xl font-bold flex items-center gap-2 mb-4"><span className="text-green-500">🏗️</span> 기술 스택</h2>
-          <div className="flex flex-wrap gap-2 mb-6">
-            {techStacks.map((tech) => (
-              <Badge key={tech} variant="outline" className="px-3 py-1 text-xs font-medium bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
-                {tech}
-              </Badge>
-            ))}
-          </div>
+          <h2 className="text-xl font-bold flex items-center gap-2 mb-4"><span className="text-purple-500">🛠️</span> 기술 스택</h2>
           <div className="overflow-x-auto">
             <table className="min-w-[400px] border text-sm">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
-                  <th className="border px-4 py-2 text-center align-middle">구분</th>
-                  <th className="border px-4 py-2 text-center align-middle">주요 라이브러리</th>
-                  <th className="border px-4 py-2 text-center align-middle">특징/역할</th>
+                  <th className="border px-2 py-1">구분</th>
+                  <th className="border px-2 py-1">주요 기술</th>
+                  <th className="border px-2 py-1">특징/역할</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="border px-4 py-2 font-bold text-center align-middle">프로그래밍 언어</td>
-                  <td className="border px-4 py-2 text-center align-middle">Python</td>
-                  <td className="border px-4 py-2 text-center align-middle">전체 크롤링/자동화/서버구현</td>
-                </tr>
-                <tr>
-                  <td className="border px-4 py-2 font-bold text-center align-middle">크롤링</td>
-                  <td className="border px-4 py-2 text-center align-middle">Selenium, BeautifulSoup4</td>
-                  <td className="border px-4 py-2 text-center align-middle">동적·정적 웹 데이터 파싱</td>
-                </tr>
-                <tr>
-                  <td className="border px-4 py-2 font-bold text-center align-middle">동시성/작업 분산</td>
-                  <td className="border px-4 py-2 text-center align-middle">Thread, Queue</td>
-                  <td className="border px-4 py-2 text-center align-middle">멀티스레드, 큐 기반 작업 분산</td>
-                </tr>
-                <tr>
-                  <td className="border px-4 py-2 font-bold text-center align-middle">DB/대용량 처리</td>
-                  <td className="border px-4 py-2 text-center align-middle">PostgreSQL, COPY</td>
-                  <td className="border px-4 py-2 text-center align-middle">대용량 데이터 저장/최적화</td>
-                </tr>
+                {techStacks.map((row) => (
+                  <tr key={row.type}>
+                    <td className="border px-2 py-1 font-bold">{row.type}</td>
+                    <td className="border px-2 py-1">{row.stack.join(', ')}</td>
+                    <td className="border px-2 py-1">{row.desc}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -140,16 +146,89 @@ const Project3Content: React.FC = () => {
 
       {/* 링크 */}
       <TabsContent value="links" className="min-h-[600px] max-h-[600px] overflow-y-auto" style={{ scrollbarGutter: 'stable' }}>
-        <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800 flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <Button asChild variant="secondary" className="w-full sm:w-fit transition-all hover:bg-gray-200 dark:hover:bg-gray-700">
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 block w-full">
-              GitHub 저장소
-            </a>
-          </Button>
+        <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center gap-6 h-full">
+          <h3 className="text-lg font-semibold flex items-center gap-2 mb-4"><span className="text-sky-500">🔗</span> 관련 링크</h3>
+          <div className="flex flex-row gap-4 w-full justify-center">
+            <Button asChild variant="outline" className="flex-1 flex items-center justify-center gap-2 max-w-xs">
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-1"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.274.098-2.656 0 0 .84-.27 2.75 1.025A9.563 9.563 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.295 2.748-1.025 2.748-1.025.546 1.382.202 2.402.1 2.656.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.752 0 .268.18.579.688.48C19.138 20.197 22 16.444 22 12.021 22 6.484 17.523 2 12 2z" /></svg>
+                GitHub 저장소
+              </a>
+            </Button>
+            <Button asChild variant="default" className="flex-1 flex items-center justify-center gap-2 max-w-xs">
+              <a href={deployUrl} target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-1"><path d="M12.293 2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1-1.414 1.414L16 7.414V15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7.414l-.293.293A1 1 0 0 1 2.293 6.293l4-4a1 1 0 0 1 1.414 0zM6 7v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7H6z" /></svg>
+                배포 페이지
+              </a>
+            </Button>
+            <Button asChild variant="default" className="flex-1 flex items-center justify-center gap-2 max-w-xs">
+              <a href={blaybusUrl} target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-1"><path d="M12.293 2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1-1.414 1.414L16 7.414V15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7.414l-.293.293A1 1 0 0 1 2.293 6.293l4-4a1 1 0 0 1 1.414 0zM6 7v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7H6z" /></svg>
+                해커톤 행사 안내 페이지
+              </a>
+            </Button>
+            <Button asChild variant="default" className="flex-1 flex items-center justify-center gap-2 max-w-xs">
+              <a href={dashboardUrl} target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-1"><path d="M12.293 2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1-1.414 1.414L16 7.414V15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7.414l-.293.293A1 1 0 0 1 2.293 6.293l4-4a1 1 0 0 1 1.414 0zM6 7v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7H6z" /></svg>
+                통계 대시보드
+              </a>
+            </Button>
+          </div>
         </section>
       </TabsContent>
+
+      {/* 이미지 갤러리 */}
+      <TabsContent value="gallery" className="min-h-[600px] max-h-[600px] overflow-y-auto" style={{ scrollbarGutter: 'stable' }}>
+        <section className="bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-100 dark:border-gray-800 flex flex-col items-center gap-6 h-full">
+          <h3 className="text-lg font-semibold flex items-center gap-2 mb-4"><span className="text-pink-500">🖼️</span> 참여 사진/갤러리</h3>
+          <div className="flex flex-wrap gap-4 justify-center">
+            {galleryImages.map((src, idx) => (
+              <Image
+                key={src}
+                src={src}
+                alt={`gallery-${idx}`}
+                width={288}
+                height={192}
+                className="object-cover rounded-lg shadow border cursor-pointer"
+                loading="lazy"
+                onClick={() => handleImageClick(src)}
+              />
+            ))}
+          </div>
+        </section>
+      </TabsContent>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full aspect-video max-h-[80vh] bg-white dark:bg-gray-900 rounded-lg shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-3 right-3 z-10 text-gray-700 dark:text-gray-300 bg-white bg-opacity-70 dark:bg-gray-700 dark:bg-opacity-70 rounded-full p-1.5 hover:bg-opacity-100 dark:hover:bg-opacity-100 transition-colors"
+              onClick={() => setSelectedImage(null)}
+              aria-label="닫기"
+              type="button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <Image
+              src={selectedImage}
+              alt="확대된 이미지"
+              layout="fill"
+              objectFit="contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      )}
     </Tabs>
   );
 };
 
-export default Project3Content;
+export default Project4Content;

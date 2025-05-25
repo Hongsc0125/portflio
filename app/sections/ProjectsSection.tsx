@@ -13,14 +13,14 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    id: 1,
+    id: 5,
     isRunning: true,
     projectType: '개인',
     title: "마비노기 모바일 Discord 봇",
     description: "마비노기 모바일 플레이 중 느꼈던 불편함을 해소하고자 Discord 봇을 개발했습니다.\n주요 기능으로 랭킹정보, 파티모집, 인구통계, 알림기능 등을 제공합니다."
   },
   {
-    id: 2,
+    id: 4,
     isRunning: true,
     projectType: '개인',
     title: "대용량 크롤링 서버 구축",
@@ -34,11 +34,18 @@ const projectsData: Project[] = [
     description: "Next.js, Tailwind CSS, shadcn/ui 기반의 반응형 포트폴리오 웹사이트\n깔끔한 UI/UX, 자동 배포, 컴포넌트 기반 구조 구현"
   },
   {
-    id: 4,
+    id: 2,
     isRunning: false,
     projectType: '팀',
     title: "할머리 프로젝트",
     description: "블레이버스 2025 MVP 해커톤에서\n👑3위👑를 수상한 작품입니다.\n실제 예비창업자의 아이디어를 바탕으로, 클라이언트와 직접 소통하며 2주간 MVP를 개발했습니다.\n로그인 → 헤어디자이너 리스트 → 예약 → 구글미트 이벤트 생성 → 결제까지의 실 서비스 로직을 구현하였고, 유저 패턴 데이터 수집 및 대시보드도 제공하는 등 실제 창업 환경에 가까운 경험을 했습니다."
+  },
+  {
+    id: 1,
+    isRunning: false,
+    projectType: '팀',
+    title: "AImigo",
+    description: "엘리스그룹에서 주최한 AI hellothon 2024에서 TOP5까지 오른 작품입니다.\n신입사원의 빠른 온보딩과 대화 스킬 학습을 위한 AI 파트너로, 다양한 직군별 상황에서의 대화를 시뮬레이션할 수 있는 서비스입니다.\nAI가 제시하는 다양한 업무 시나리오에 대해 대화를 진행하고, AI가 피드백을 제공하여 사회생활 스킬을 향상시킬 수 있습니다."
   },
 ];
 

@@ -83,7 +83,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ isOpen, onClose
 
           <Separator />
 
-          <CardContent className="p-6 flex-1 flex flex-col overflow-y-auto">
+          <CardContent className="p-6 flex-1 flex flex-col">
             {ProjectSpecificContent ? (
               <Suspense fallback={<div className="text-center p-4">Loading details...</div>}>
                 <ProjectSpecificContent />
