@@ -14,7 +14,7 @@ const techStacks: string[] = [
 ];
 
 const githubUrl = "https://github.com/Hongsc0125/portflio";
-const deployUrl = "https://portfolio.hongsc0125.com";
+const deployUrl = "https://portflio-3ckz.vercel.app";
 
 const Project3Content: React.FC = () => {
   return (
