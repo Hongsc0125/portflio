@@ -14,10 +14,10 @@ const CareerSection: React.FC = () => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-500 dark:text-orange-200">
-                  <Image src="/images/logos/dongwon.png" alt="meta" width={30} height={30} />
+                  <Image src="/images/logos/metabuild.png" alt="meta" width={30} height={30} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">동원산업</h3>
+                  <h3 className="text-xl font-bold text-foreground">메타빌드</h3>
                   <p className="text-sm text-muted-foreground">2024.01 - (재직 중)</p>
                 </div>
               </div>
@@ -29,7 +29,6 @@ const CareerSection: React.FC = () => {
                 <div className="grid grid-cols-1 gap-4">
                   <div className="bg-accent p-3 rounded-lg">
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <Badge variant="secondary" className="bg-background hover:bg-accent text-foreground transition-colors">파견근무</Badge>
                       <Badge variant="secondary" className="bg-blue-50 hover:bg-blue-100 text-blue-700">Spring(Egov)</Badge>
                       <Badge variant="secondary" className="bg-amber-50 hover:bg-amber-100 text-amber-700">Vue</Badge>
                       <Badge variant="secondary" className="bg-amber-50 hover:bg-amber-100 text-amber-700">Exbuilder</Badge>
@@ -109,7 +108,6 @@ const CareerSection: React.FC = () => {
                 <div className="grid grid-cols-1 gap-4">
                   <div className="bg-accent p-3 rounded-lg">
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <Badge variant="secondary" className="bg-background hover:bg-accent text-foreground transition-colors">파견근무</Badge>
                       <Badge variant="secondary" className="bg-blue-50 hover:bg-blue-100 text-blue-700">Spring</Badge>
                       <Badge variant="secondary" className="bg-blue-50 hover:bg-blue-100 text-blue-700">JMS</Badge>
                       <Badge variant="secondary" className="bg-amber-50 hover:bg-amber-100 text-amber-700">EAI</Badge>
