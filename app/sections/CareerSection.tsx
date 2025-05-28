@@ -14,10 +14,10 @@ const CareerSection: React.FC = () => {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-orange-500 dark:text-orange-200">
-                  <Image src="/images/logos/metabuild.png" alt="meta" width={30} height={30} />
+                  <Image src="/images/logos/dongwon.png" alt="meta" width={30} height={30} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">(주) 메타빌드</h3>
+                  <h3 className="text-xl font-bold text-foreground">동원산업</h3>
                   <p className="text-sm text-muted-foreground">2024.01 - (재직 중)</p>
                 </div>
               </div>
